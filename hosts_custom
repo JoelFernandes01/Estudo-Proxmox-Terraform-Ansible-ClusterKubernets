@@ -1,0 +1,14 @@
+127.0.0.1   localhost
+::1         localhost ip6-localhost ip6-loopback
+fe00::0     ip6-localnet
+ff00::0     ip6-mcastprefix
+ff02::1     ip6-allnodes
+ff02::2     ip6-allrouters
+
+10.0.39.130 k8s-master1.connect.local   k8s-master1 
+10.0.39.131 k8s-master2.connect.local   k8s-master2
+10.0.39.132 k8s-master3.connect.local   k8s-master3
+10.0.39.150 lb.connect.local            lb
+10.0.39.230 k8s-node1.connect.local     k8s-node1
+10.0.39.231 k8s-node2.connect.local     k8s-node2
+10.0.39.232 k8s-node3.connect.local     k8s-node3
