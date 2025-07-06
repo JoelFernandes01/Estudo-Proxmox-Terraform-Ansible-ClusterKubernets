@@ -1,0 +1,21 @@
+cat /etc/hosts
+cat /etc/keepalived/keepalived.conf
+cat /etc/keepalived/check_apiserver.sh 
+sudo cat /etc/keepalived/check_apiserver.sh 
+sudo visudo 
+sudo cat /etc/keepalived/check_apiserver.sh 
+systemctl status keepalived.service 
+sudo systemctl restart keepalived.service 
+systemctl status keepalived.service 
+nc -v lb.connect.local 6443
+cat /etc/keepalived/keepalived.conf
+sudo kubeadm init --control-plane-endpoint "lb.connect.local:6443" --upload-certs --node-name `hostname -s` --pod-network-cidr=172.20.0.0/16 --service-cidr=172.19.0.0/16 --apiserver-cert-extra-sans=10.0.39.150
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+kubectl get node -owide
+kubectl get pod -A -owide
+watch kubectl get pod -A -owide
+nc -v lb.connect.local 6443
+kubectl label node k8s-node1 node-role.kubernetes.io/worker-node1=
